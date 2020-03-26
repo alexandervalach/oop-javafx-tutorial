@@ -84,7 +84,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../oop-javafx-tutorial/3 - Modals" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -225,10 +225,10 @@
       <screen x="0" y="0" width="1366" height="734" />
     </state>
     <state x="278" y="27" width="800" height="672" key="#Java/0.0.1366.734@0.0.1366.734" timestamp="1585220582779" />
-    <state x="354" y="109" width="637" height="506" key="FileChooserDialogImpl" timestamp="1585219948912">
+    <state x="354" y="109" width="637" height="506" key="FileChooserDialogImpl" timestamp="1585223746361">
       <screen x="0" y="0" width="1366" height="734" />
     </state>
-    <state x="354" y="109" width="637" height="506" key="FileChooserDialogImpl/0.0.1366.734@0.0.1366.734" timestamp="1585219948912" />
+    <state x="354" y="109" width="637" height="506" key="FileChooserDialogImpl/0.0.1366.734@0.0.1366.734" timestamp="1585223746361" />
     <state width="1324" height="175" key="GridCell.Tab.0.bottom" timestamp="1585223287285">
       <screen x="0" y="0" width="1366" height="734" />
     </state>

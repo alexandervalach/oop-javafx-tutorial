@@ -36,13 +36,11 @@ public class DashboardController extends BaseController {
     logout.defaultButtonProperty().bind(logout.focusedProperty());
 
     tracks.setOnAction((e) -> {
-      this.switchScene("Login");
+      this.switchScene("Tracks/All");
     });
 
     logout.setOnAction((e) -> {
       this.switchScene("Login");
     });
-
-    // infoDialog.display("Vitajte", "John Denver - Country Roads");
   }
 }

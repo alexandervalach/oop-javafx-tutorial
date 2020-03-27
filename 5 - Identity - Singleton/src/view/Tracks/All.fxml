@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+
+<GridPane fx:id="app" alignment="CENTER" minWidth="800" minHeight="600"
+          vgap="10.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TracksController">
+
+    <Label id="banner" alignment="CENTER" text="Skladby" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="2"/>
+
+    <HBox spacing="10" alignment="bottom_left" GridPane.columnIndex="0"
+          GridPane.rowIndex="2" GridPane.columnSpan="2" minHeight="50">
+        <Button fx:id="dashboard" prefWidth="120" text="Domov"/>
+        <Button fx:id="logout" prefWidth="120" text="Odhlásiť sa"/>
+    </HBox>
+</GridPane>

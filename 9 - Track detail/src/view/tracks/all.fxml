@@ -21,6 +21,16 @@
     </TableView>
 
     <AnchorPane GridPane.rowIndex="1" GridPane.columnIndex="2">
+        <GridPane vgap="10" hgap="10">
+            <Label text="Názov:" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+            <Label fx:id="trackTitle" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Interprét:" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+            <Label fx:id="trackArtist" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+        </GridPane>
+    </AnchorPane>
+
+    <!--
+    <AnchorPane GridPane.rowIndex="1" GridPane.columnIndex="2">
         <GridPane vgap="10.0" hgap="10.0">
             <Label text="Názov:" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
             <Label fx:id="trackTitle" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
@@ -28,6 +38,7 @@
             <Label fx:id="trackArtist" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
         </GridPane>
     </AnchorPane>
+    -->
 
     <HBox spacing="10" alignment="bottom_left" GridPane.columnIndex="0"
           GridPane.rowIndex="2" GridPane.columnSpan="2" minHeight="50">

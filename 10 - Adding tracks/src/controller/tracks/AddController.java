@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import model.AppendingObjectOutputStream;
 import model.Track;
 
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -39,25 +40,38 @@ public class AddController extends BaseController {
 
     save.setOnAction(e -> {
       try {
-        saveTrack();
+        addTrack();
+      } catch (IOException ex) {
+        ex.printStackTrace();
+      }
+    });
+
+    cancel.setOnAction(e -> closeDialog());
+
+    /*
+    save.setOnAction(e -> {
+      try {
+        // saveTrack();
       } catch (IOException ex) {
         ex.printStackTrace();
       }
     });
 
     cancel.setOnAction(e -> handleCancel());
+    */
   }
 
-  private void saveTrack () throws IOException {
-    // TODO: Validate data
+  @FXML
+  private void addTrack() throws IOException {
     Track track = new Track(title.getText(), artist.getText());
+    String dataURL = rootURL + "/data/tracks.txt";
 
-    if (fileExists(rootURL + "/data/tracks.txt")) {
-      AppendingObjectOutputStream aos = new AppendingObjectOutputStream(new FileOutputStream("data/tracks.txt", true));
-      aos.writeObject(track);
-      aos.close();
+    if (fileExists(dataURL)) {
+      AppendingObjectOutputStream as = new AppendingObjectOutputStream(new FileOutputStream(dataURL, true));
+      as.writeObject(track);
+      as.close();
     } else {
-      ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("data/tracks.txt"));
+      ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(dataURL));
       os.writeObject(track);
       os.close();
     }
@@ -70,8 +84,8 @@ public class AddController extends BaseController {
    * Called when clear button is clicked.
    */
   @FXML
-  private void handleCancel() {
-    dialog.close();
+  private void closeDialog() {
+    this.dialog.close();
   }
 
   public void setDialogStage(Stage dialog) {

@@ -31,8 +31,8 @@
 
     <HBox spacing="10" alignment="bottom_left" GridPane.columnIndex="0"
           GridPane.rowIndex="2" GridPane.columnSpan="2" minHeight="50">
-        <Button fx:id="addTrack" prefWidth="120" text="+"/>
-        <Button fx:id="refreshBtn" prefWidth="120" text="Načítať"/>
+        <Button fx:id="addTrack" prefWidth="120" text="Pridať skladbu" />
+        <Button fx:id="refreshBtn" prefWidth="120" text="Načítať" />
         <Button fx:id="dashboard" prefWidth="120" text="Domov"/>
         <Button fx:id="logout" prefWidth="120" text="Odhlásiť sa"/>
     </HBox>

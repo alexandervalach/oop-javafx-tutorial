@@ -13,12 +13,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import model.ErrorDialog;
 import model.Track;
 
-import java.io.EOFException;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -54,6 +52,11 @@ public class TracksController extends BaseController
 
   private ObservableList<Track> tracksList;
   private Track track;
+  ErrorDialog errorDialog;
+
+  public TracksController() {
+    errorDialog = new ErrorDialog();
+  }
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -71,7 +74,13 @@ public class TracksController extends BaseController
     tracksList.add(new Track("Aj tak sme frajeri", "Peter Nagy, Indigo"));
      */
 
-    syncTracks();
+    try {
+      syncTracks();
+    } catch (IOException e) {
+      e.printStackTrace();
+    } catch (ClassNotFoundException e) {
+      e.printStackTrace();
+    }
 
     if (tracksList != null) {
       tracksTable.setItems(tracksList);
@@ -101,46 +110,72 @@ public class TracksController extends BaseController
   }
 
   private void registerListeners () {
-    addTrack.defaultButtonProperty().bind(addTrack.focusedProperty());
-    addTrack.setOnAction((e) -> showAdd());
-
     dashboard.defaultButtonProperty().bind(dashboard.focusedProperty());
     dashboard.setOnAction((e) -> switchScene("dashboard"));
 
     logout.defaultButtonProperty().bind(logout.focusedProperty());
     logout.setOnAction((e) -> logout());
 
+    addTrack.defaultButtonProperty().bind(addTrack.focusedProperty());
+    addTrack.setOnAction(e -> {
+      try {
+        showAddDialog();
+      } catch (IOException ex) {
+        errorDialog.display("Chyba s oknami", "Nepodarilo sa otvorit nove okno");
+      }
+    });
+
     refreshBtn.defaultButtonProperty().bind(refreshBtn.focusedProperty());
-    refreshBtn.setOnAction((e) -> syncTracks());
+    refreshBtn.setOnAction(e -> {
+      try {
+        syncTracks();
+      } catch (IOException ex) {
+        ex.printStackTrace();
+      } catch (ClassNotFoundException ex) {
+        ex.printStackTrace();
+      }
+    });
   }
 
-  /**
-   * Shows add dialog using fxml file
-   */
-  public void showAdd() {
+  private void showAddDialog() throws IOException {
+    // System.out.println("Zobrazi sa Add Track Dialog okno");
     FXMLLoader loader = new FXMLLoader();
 
-    try {
-      loader.setLocation(getLocation("tracks/add"));
+    loader.setLocation(getLocation("tracks/add"));
+    GridPane pane = loader.load();
+    Stage addDialog = new Stage();
+    Scene scene = new Scene(pane);
 
-      GridPane pane = loader.load();
-      Scene scene = new Scene(pane);
-      Stage addDialog = new Stage();
+    AddController controller = loader.getController();
+    controller.setDialogStage(addDialog);
 
-      addDialog.setTitle("Pridať skladbu");
-      // addDialog.initOwner((Stage) trackTitle.getScene().getWindow());
-
-      AddController controller = loader.getController();
-      controller.setDialogStage(addDialog);
-
-      addDialog.setScene(scene);
-      addDialog.showAndWait();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
+    addDialog.setTitle("Pridať skladbu");
+    addDialog.setScene(scene);
+    addDialog.showAndWait();
   }
 
-  private void syncTracks () {
+  private void syncTracks () throws IOException, ClassNotFoundException {
+    String dataURL = rootURL + "/data/tracks.txt";
+
+    if (fileExists(dataURL)) {
+      ObjectInputStream is = new ObjectInputStream(new FileInputStream(dataURL));
+
+      tracksTable.getItems().removeAll(tracksList);
+
+      try {
+        while (true) {
+          Track track = (Track) is.readObject();
+          System.out.println(track.getTitle() + ", " + track.getArtist());
+          tracksList.add(track);
+        }
+      } catch (EOFException e) {
+        System.out.println("Koniec suboru");
+      }
+
+      tracksTable.setItems(tracksList);
+    }
+
+    /*
     String fileURL = rootURL + "/data/tracks.txt";
 
     if (fileExists(fileURL)) {
@@ -163,5 +198,6 @@ public class TracksController extends BaseController
 
       tracksTable.setItems(tracksList);
     }
+     */
   }
 }

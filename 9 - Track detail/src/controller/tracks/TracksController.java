@@ -23,10 +23,10 @@ import java.util.ResourceBundle;
 public class TracksController extends BaseController
 {
   @FXML
-  private Label trackTitle;
+  private Label trackArtist;
 
   @FXML
-  private Label trackArtist;
+  private Label trackTitle;
 
   @FXML
   private TableView<Track> tracksTable;
@@ -44,7 +44,6 @@ public class TracksController extends BaseController
   private Button logout;
 
   private ObservableList<Track> tracksList;
-  private Track track;
 
   public TracksController() {
     tracksList = FXCollections.observableArrayList();
@@ -71,9 +70,22 @@ public class TracksController extends BaseController
 
     tracksTable.getSelectionModel().selectedItemProperty().addListener(
       (observable, oldValue, newValue) -> {
+        if (oldValue != null) {
+          System.out.println(oldValue.getTitle() + ", " + oldValue.getArtist());
+        }
+        showDetails(newValue);
+      }
+    );
+
+    /*
+    showDetails(null);
+
+    tracksTable.getSelectionModel().selectedItemProperty().addListener(
+      (observable, oldValue, newValue) -> {
         showDetails(newValue);
         track = newValue;
     });
+    */
 
     registerListeners();
   }

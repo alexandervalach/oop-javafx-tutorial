@@ -23,7 +23,6 @@ public abstract class BaseController implements Initializable {
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
     identity = Identity.getInstance();
-
     // Na začiatku si načítame URL
     viewURL = System.getProperty("user.dir") + "/src/view/";
   }
@@ -42,14 +41,6 @@ public abstract class BaseController implements Initializable {
    * @param view scene to be viewed
    * */
   public void switchScene(String view) {
-    /*
-    if (identity != null) {
-      System.out.println("Identity: " + identity.getUsername());
-    } else {
-      System.out.println("No identity");
-    }
-    */
-
     try {
       // Odstránime obsah view, ktorý je momentálne zobrazený
       app.getChildren().clear();
@@ -57,6 +48,7 @@ public abstract class BaseController implements Initializable {
       // Absolútna URL k danému fxml súboru
       URL fxmlURL = Paths.get(viewURL + view + ".fxml").toUri().toURL();
 
+      System.out.println(fxmlURL.toString());
       // Vymeníme za nový obsah
       app.getChildren().add(FXMLLoader.load(fxmlURL));
     } catch (IOException e) {

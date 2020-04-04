@@ -15,28 +15,10 @@
 
     <TableView fx:id="tracksTable" GridPane.rowIndex="1" GridPane.columnIndex="1">
         <columns>
-            <TableColumn fx:id="title" prefWidth="300" text="Názov"/>
-            <TableColumn fx:id="artist" prefWidth="300" text="Interprét"/>
+            <TableColumn fx:id="title" prefWidth="200" text="Názov skladby" />
+            <TableColumn fx:id="artist" prefWidth="200" text="Interprét" />
         </columns>
     </TableView>
-
-    <!--
-    <AnchorPane GridPane.rowIndex="1" GridPane.columnIndex="2">
-        <GridPane vgap="10.0" hgap="10.0">
-            <Label text="Odosielateľ - prijímateľ:" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-            <Label fx:id="lblReciever" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
-
-            <Label text="Suma:" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-            <Label fx:id="lblSum" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
-
-            <Label text="Dátum:" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
-            <Label fx:id="lblDate" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
-
-            <Label text="Poznámka:" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
-            <Label fx:id="lblNote" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
-        </GridPane>
-    </AnchorPane>
-    -->
 
     <HBox spacing="10" alignment="bottom_left" GridPane.columnIndex="0"
           GridPane.rowIndex="2" GridPane.columnSpan="2" minHeight="50">

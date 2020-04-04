@@ -14,13 +14,13 @@
 
     <Label id="banner" alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="3"/>
 
-    <Label text="Názov" alignment="CENTER" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+    <Label text="Názov" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
     <TextField fx:id="title" GridPane.rowIndex="1" GridPane.columnIndex="2" GridPane.columnSpan="2"/>
 
-    <Label text="Interprét" alignment="CENTER" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+    <Label text="Interprét" alignment="CENTER" GridPane.columnIndex="5" GridPane.rowIndex="1" />
     <TextField fx:id="artist" GridPane.rowIndex="5" GridPane.columnIndex="2" GridPane.columnSpan="2"/>
 
-    <Button fx:id="save" prefWidth="130" text="Uložiť" GridPane.rowIndex="8" GridPane.columnIndex="2"/>
-    <Button fx:id="cancel" prefWidth="130" text="Zrušiť" GridPane.rowIndex="8" GridPane.columnIndex="3"/>
+    <Button fx:id="save" prefWidth="130" text="Uložiž" GridPane.rowIndex="8" GridPane.columnIndex="2" />
+    <Button fx:id="cancel" prefWidth="130" text="Zrušiť" GridPane.rowIndex="8" GridPane.columnIndex="3" />
 
 </GridPane>

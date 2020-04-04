@@ -12,10 +12,10 @@
        GridPane.columnSpan="2"/>
 
 <Label text="Meno" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-<TextField fx:id="username" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+<TextField fx:id="username" GridPane.columnIndex="2" GridPane.rowIndex="1" text="admin" />
 
 <Label text="Heslo" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-<PasswordField fx:id="password" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+<PasswordField fx:id="password" GridPane.columnIndex="2" GridPane.rowIndex="2" text="admin" />
 
 <Button fx:id="authenticate" text="Prihlásiť sa" GridPane.rowIndex="3" GridPane.columnIndex="2"/>
 <Label fx:id="messageBox" GridPane.rowIndex="4" GridPane.columnIndex="1"/>

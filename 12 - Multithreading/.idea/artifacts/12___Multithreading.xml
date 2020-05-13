@@ -1,12 +1,12 @@
 <component name="ArtifactManager">
   <artifact type="javafx" name="12 - Multithreading">
-    <output-path>$PROJECT_DIR$/out/artifacts/12___Multithreading</output-path>
+    <output-path>$PROJECT_DIR$/</output-path>
     <properties id="javafx-properties">
       <options>
         <option name="appClass" value="controller.Main" />
         <option name="description" value="" />
         <option name="htmlPlaceholderId" value="" />
-        <option name="title" value="12 - Multithreading" />
+        <option name="title" value="" />
         <option name="vendor" value="" />
         <option name="version" value="" />
       </options>

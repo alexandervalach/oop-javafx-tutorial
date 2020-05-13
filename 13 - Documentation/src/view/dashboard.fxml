@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:id="app"
+          fx:controller="controller.DashboardController"
+          prefHeight="600" prefWidth="800">
+
+    <Label id="banner" alignment="CENTER" text="Knižnica skladieb" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="2"/>
+
+    <HBox spacing="10" alignment="bottom_left" GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.columnSpan="2" minHeight="50">
+        <Button fx:id="tracks" prefWidth="120" prefHeight="120" text="Skladby" />
+        <Button fx:id="logout" prefWidth="120" prefHeight="120" text="Odhlásiť sa" />
+    </HBox>
+
+</GridPane>
